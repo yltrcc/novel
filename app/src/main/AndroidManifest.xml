@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".modules.launcher.LauncherActivity"
+            android:name=".ui.launcher.LauncherActivity"
             android:theme="@style/FullScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".modules.home.HomeActivity"></activity>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.search.SearchActivity" />
+        <activity android:name=".ui.set.SetActivity" />
+        <activity android:name=".ui.feedback.FeedbackActivity" />
+        <activity android:name=".ui.about.AboutActivity" />
+        <activity android:name=".ui.history.HistoryActivity" />
+        <activity android:name=".ui.information.UserInformationActivity"></activity>
     </application>
 
 </manifest>

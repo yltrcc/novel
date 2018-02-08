@@ -1,21 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="top.ttxxly.novel.modules.home.HomeActivity">
+    tools:context="top.ttxxly.novel.ui.home.HomeActivity">
 
-    <android.support.v4.view.ViewPager
+    <top.ttxxly.novel.base.BaseViewPager
+        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#DCDCDC"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"/>
 
     <LinearLayout
+        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_bookrack"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/bookrack_red"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/tv_bookrack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="书架"
+                android:layout_marginTop="32dp"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_Publication"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/publication_black"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/tv_Publication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="出版物"
+                android:layout_marginTop="32dp"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_fiction"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/fiction_black"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/tv_fiction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="小说"
+                android:layout_marginTop="32dp"
+                android:textSize="10sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_me"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/user_black"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:id="@+id/tv_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="我的"
+                android:layout_marginTop="32dp"
+                android:textSize="10sp" />
+        </RelativeLayout>
 
 
     </LinearLayout>
-</LinearLayout>
+
+</RelativeLayout>

@@ -1,13 +1,12 @@
-package top.ttxxly.novel.modules.launcher;
+package top.ttxxly.novel.ui.launcher;
 
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.WindowManager;
 
 import top.ttxxly.novel.R;
-import top.ttxxly.novel.modules.home.HomeActivity;
+import top.ttxxly.novel.ui.home.HomeActivity;
 
 /**
  * @author ttxxly

@@ -1,4 +1,4 @@
-package top.ttxxly.novel.modules.launcher;
+package top.ttxxly.novel.ui.launcher;
 
 import top.ttxxly.novel.base.BasePresenter;
 import top.ttxxly.novel.base.BaseView;

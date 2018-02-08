@@ -1,4 +1,4 @@
-package top.ttxxly.novel.modules.launcher;
+package top.ttxxly.novel.ui.launcher;
 
 /**
  * Description:

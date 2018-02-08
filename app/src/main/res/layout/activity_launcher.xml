@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="top.ttxxly.novel.modules.launcher.LauncherActivity">
+    tools:context="top.ttxxly.novel.ui.launcher.LauncherActivity">
 
     <ImageView
         android:layout_width="match_parent"
