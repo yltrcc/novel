@@ -5,13 +5,23 @@
     <item
         android:id="@+id/menu_bookrack_research"
         android:title="搜索"
-        android:icon="@drawable/research"
+        android:icon="@mipmap/ic_search_black_24dp"
         app:showAsAction="always"/>
+
     <item
-        android:id="@+id/menu_bookrack_edit"
-        android:title="编辑"
-        android:icon="@drawable/edit"
-        app:showAsAction="never|withText"
-        />
+        android:id="@+id/settings"
+        android:icon="@mipmap/ic_add_black_24dp"
+        android:title="add"
+        app:showAsAction="always">
+        <menu>
+            <item
+                android:id="@+id/menu_bookrack_edit"
+                android:title="编辑"
+                android:icon="@mipmap/ic_edit_black_24dp"
+                app:showAsAction="never|withText"
+                />
+        </menu>
+
+    </item>
 
 </menu>

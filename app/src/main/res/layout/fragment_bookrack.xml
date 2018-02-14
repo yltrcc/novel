@@ -10,7 +10,18 @@
         android:id="@+id/bookrack_toolbar"
         android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        app:title="@string/app_name" />
+        app:title="@string/app_name"
+        app:popupTheme="@style/OverFlowMenuTheme" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@drawable/shadow" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
 
 </LinearLayout>
