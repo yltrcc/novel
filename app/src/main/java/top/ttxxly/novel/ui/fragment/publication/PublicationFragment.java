@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import top.ttxxly.novel.R;
+import top.ttxxly.novel.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PublicationFragment extends Fragment {
+public class PublicationFragment extends BaseFragment {
 
 
     public PublicationFragment() {

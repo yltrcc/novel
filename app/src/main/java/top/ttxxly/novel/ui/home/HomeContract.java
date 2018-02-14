@@ -15,7 +15,7 @@ public class HomeContract {
 
     interface View extends BaseView {
 
-
+        void initViewPager();
     }
 
     interface Presenter extends BasePresenter {

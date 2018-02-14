@@ -10,9 +10,15 @@ package top.ttxxly.novel.ui.home;
 
 public class HomePresenter implements HomeContract.Presenter{
 
+    private HomeContract.View mView;
+
+    HomePresenter(HomeContract.View view){
+        mView = view;
+    }
+
     @Override
     public void start() {
-
+        mView.initViewPager();
     }
 
     @Override
