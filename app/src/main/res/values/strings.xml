@@ -3,4 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="subject_book_list_detail_book_lately_follower">%1$d&#160;人在追</string>
+    <string name="subject_book_list_detail_book_word_count">|&#160;%1$d&#160;万字</string>
 </resources>
