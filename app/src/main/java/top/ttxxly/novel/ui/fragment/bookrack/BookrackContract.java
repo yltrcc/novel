@@ -3,6 +3,7 @@ package top.ttxxly.novel.ui.fragment.bookrack;
 import top.ttxxly.novel.base.BasePresenter;
 import top.ttxxly.novel.base.BaseView;
 import top.ttxxly.novel.base.BaseViewPager;
+import top.ttxxly.novel.entity.MyBooks;
 
 /**
  * Description:
@@ -15,10 +16,13 @@ import top.ttxxly.novel.base.BaseViewPager;
 public class BookrackContract {
 
     interface view extends BaseView {
-
+        void init(MyBooks myBooks);
+        void addDataSource();
+        void getDataSource();
+        void setDataSource();
     }
 
     interface presenter extends BasePresenter{
-
+        void getDataSource();
     }
 }
