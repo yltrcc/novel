@@ -1,4 +1,4 @@
-package top.ttxxly.novel.ui.fragment.bookrack;
+package top.ttxxly.novel.ui.fragment.bookshelf;
 
 
 import android.os.Bundle;
@@ -7,15 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import java.lang.reflect.Method;
+import android.widget.RelativeLayout;
 
 import top.ttxxly.novel.R;
 import top.ttxxly.novel.base.BaseFragment;
@@ -24,14 +22,15 @@ import top.ttxxly.novel.entity.MyBooks;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BookrackFragment extends BaseFragment implements BookrackContract.view{
+public class BookshelfFragment extends BaseFragment implements BookshelfContract.view {
 
 
     private ViewGroup mContainer;
     private RecyclerView rv_bookrack;
-    private BookrackAdapter bookrackAdapter;
+    private BookshelfAdapter bookrackAdapter;
+    private RelativeLayout bookshelfEmpty;
 
-    public BookrackFragment() {
+    public BookshelfFragment() {
         // Required empty public constructor
     }
 
@@ -41,7 +40,7 @@ public class BookrackFragment extends BaseFragment implements BookrackContract.v
                              Bundle savedInstanceState) {
         mContainer = container;
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_bookrack, container, false);
+        View view = inflater.inflate(R.layout.fragment_bookshelf, container, false);
 
         Toolbar mBookrackToolbar = view.findViewById(R.id.bookrack_toolbar);
         ((AppCompatActivity) getActivity()).setSupportActionBar(mBookrackToolbar);
@@ -50,17 +49,33 @@ public class BookrackFragment extends BaseFragment implements BookrackContract.v
         rv_bookrack = view.findViewById(R.id.rv_bookrack);
         rv_bookrack.setLayoutManager(new LinearLayoutManager(container.getContext()));
 
-        BookrackContract.presenter presenter = new BookrackPresenter(this);
+        bookshelfEmpty = view.findViewById(R.id.bookshelf_empty);
+        container.getContext().getFilesDir();
+
+
+        BookshelfContract.presenter presenter = new BookshelfPresenter(this, mContainer.getContext());
         presenter.start();
         return view;
     }
 
+    /**
+     * 创建  Toolbar 菜单
+     *
+     * @param menu
+     * @param inflater
+     */
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
         inflater.inflate(R.menu.bookrackmenu, menu);
     }
 
+    /**
+     * 选择 Toolbar 菜单，并做出相应的操作
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -76,9 +91,14 @@ public class BookrackFragment extends BaseFragment implements BookrackContract.v
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * 装配数据
+     *
+     * @param myBooks
+     */
     @Override
     public void init(MyBooks myBooks) {
-        bookrackAdapter = new BookrackAdapter(myBooks, mContainer);
+        bookrackAdapter = new BookshelfAdapter(myBooks, mContainer);
         rv_bookrack.setAdapter(bookrackAdapter);
     }
 
@@ -95,5 +115,14 @@ public class BookrackFragment extends BaseFragment implements BookrackContract.v
     @Override
     public void setDataSource() {
 
+    }
+
+    /**
+     * 书架为空时，设为空视图
+     */
+    @Override
+    public void setEmptyView() {
+        bookshelfEmpty.setVisibility(View.VISIBLE);
+        rv_bookrack.setVisibility(View.INVISIBLE);
     }
 }

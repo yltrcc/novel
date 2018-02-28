@@ -1,8 +1,7 @@
-package top.ttxxly.novel.ui.fragment.bookrack;
+package top.ttxxly.novel.ui.fragment.bookshelf;
 
 import top.ttxxly.novel.base.BasePresenter;
 import top.ttxxly.novel.base.BaseView;
-import top.ttxxly.novel.base.BaseViewPager;
 import top.ttxxly.novel.entity.MyBooks;
 
 /**
@@ -13,13 +12,14 @@ import top.ttxxly.novel.entity.MyBooks;
  * @author ttxxly
  */
 
-public class BookrackContract {
+public class BookshelfContract {
 
     interface view extends BaseView {
         void init(MyBooks myBooks);
         void addDataSource();
         void getDataSource();
         void setDataSource();
+        void setEmptyView();
     }
 
     interface presenter extends BasePresenter{

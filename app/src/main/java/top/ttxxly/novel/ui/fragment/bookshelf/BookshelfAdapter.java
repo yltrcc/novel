@@ -1,7 +1,6 @@
-package top.ttxxly.novel.ui.fragment.bookrack;
+package top.ttxxly.novel.ui.fragment.bookshelf;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +14,12 @@ import top.ttxxly.novel.entity.MyBooks;
  * Created by Administrator on 2/26/2018.
  */
 
-public class BookrackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BookshelfAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private MyBooks myBooks;
     private ViewGroup mContainer = null;
     private OnItemClickListener mOnItemClickListener = null;
 
-    public BookrackAdapter(MyBooks myBooks, ViewGroup container) {
+    public BookshelfAdapter(MyBooks myBooks, ViewGroup container) {
         this.myBooks = myBooks;
         mContainer = container;
     }
@@ -36,7 +35,7 @@ public class BookrackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(
-                mContainer.getContext()).inflate(R.layout.item_bookrack, parent,
+                mContainer.getContext()).inflate(R.layout.item_bookshelf, parent,
                 false);
         return new BooksHolder(view);
     }

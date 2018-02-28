@@ -12,6 +12,8 @@
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
     <color name="red">#FF0000</color>
+    <color name="selectedRed">#D81E06</color>
+    <color name="selectedBlack">#8A000000</color>
     <color name="orange">#DE6014</color>
     <color name="gray">#b8b8b8</color>
     <color name="green">#5FB236</color>

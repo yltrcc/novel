@@ -8,47 +8,53 @@
 
     <top.ttxxly.novel.base.BaseViewPager
         android:id="@+id/vp_home"
-        android:layout_alignParentTop="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@drawable/shadow"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="48dp"/>
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/shadow" />
 
 
     <LinearLayout
-        android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <RelativeLayout
+            android:id="@+id/rv_bookshelf"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/iv_bookrack"
+                android:id="@+id/iv_bookshelf"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/bookrack_red"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:src="@drawable/bookshelf_red" />
+
             <TextView
-                android:id="@+id/tv_bookrack"
+                android:id="@+id/tv_bookshelf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="书架"
                 android:layout_marginTop="32dp"
+                android:clickable="false"
+                android:text="书架"
+                android:textColor="@color/selectedRed"
                 android:textSize="10sp" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rv_publication"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
@@ -57,20 +63,24 @@
                 android:id="@+id/iv_Publication"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/publication_black"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:src="@drawable/publication_black" />
+
             <TextView
                 android:id="@+id/tv_Publication"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="出版物"
                 android:layout_marginTop="32dp"
+                android:clickable="false"
+                android:text="出版物"
                 android:textSize="10sp" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rv_fiction"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -80,39 +90,46 @@
                 android:id="@+id/iv_fiction"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/fiction_black"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:src="@drawable/fiction_black" />
+
             <TextView
                 android:id="@+id/tv_fiction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="小说"
                 android:layout_marginTop="32dp"
+                android:clickable="false"
+                android:text="小说"
                 android:textSize="10sp" />
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rv_user"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/iv_me"
+                android:id="@+id/iv_user"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/user_black"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp"
+                android:clickable="false"
+                android:src="@drawable/user_black" />
+
             <TextView
-                android:id="@+id/tv_me"
+                android:id="@+id/tv_user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="我的"
                 android:layout_marginTop="32dp"
+                android:clickable="false"
+                android:text="我的"
                 android:textSize="10sp" />
         </RelativeLayout>
 

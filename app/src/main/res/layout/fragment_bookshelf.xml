@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context="top.ttxxly.novel.ui.fragment.bookrack.BookrackFragment">
+    tools:context="top.ttxxly.novel.ui.fragment.bookshelf.BookshelfFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/bookrack_toolbar"
@@ -17,6 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@drawable/shadow" />
+    <include
+        android:id="@+id/bookshelf_empty"
+        android:visibility="gone"
+        layout="@layout/bookshelf_empty_view" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv_bookrack"
