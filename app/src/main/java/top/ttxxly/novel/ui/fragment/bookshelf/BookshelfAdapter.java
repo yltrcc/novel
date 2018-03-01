@@ -8,19 +8,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import top.ttxxly.novel.R;
-import top.ttxxly.novel.entity.MyBooks;
+import top.ttxxly.novel.entity.Bookshelf;
 
 /**
  * Created by Administrator on 2/26/2018.
  */
 
 public class BookshelfAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private MyBooks myBooks;
+    private Bookshelf Bookshelf;
     private ViewGroup mContainer = null;
     private OnItemClickListener mOnItemClickListener = null;
 
-    public BookshelfAdapter(MyBooks myBooks, ViewGroup container) {
-        this.myBooks = myBooks;
+    public BookshelfAdapter(Bookshelf Bookshelf, ViewGroup container) {
+        this.Bookshelf = Bookshelf;
         mContainer = container;
     }
 
@@ -45,9 +45,9 @@ public class BookshelfAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         BooksHolder booksHolder = (BooksHolder) holder;
         //绑定数据
 
-        booksHolder.title.setText(myBooks.getBooks().get(position).getBookTitle());
-        booksHolder.author.setText(myBooks.getBooks().get(position).getAuthor());
-        booksHolder.latestChapter.setText(myBooks.getBooks().get(position).getReadChapterTitle());
+        booksHolder.title.setText(Bookshelf.getBooks().get(position).getBookTitle());
+        booksHolder.author.setText(Bookshelf.getBooks().get(position).getAuthor());
+        booksHolder.latestChapter.setText(Bookshelf.getBooks().get(position).getReadChapterTitle());
     }
 
     class BooksHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -82,6 +82,6 @@ public class BookshelfAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      */
     @Override
     public int getItemCount() {
-        return myBooks.getTotal();
+        return Bookshelf.getTotal();
     }
 }

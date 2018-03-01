@@ -1,6 +1,8 @@
 package top.ttxxly.novel.ui.fragment.bookshelf;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -17,7 +19,9 @@ import android.widget.RelativeLayout;
 
 import top.ttxxly.novel.R;
 import top.ttxxly.novel.base.BaseFragment;
-import top.ttxxly.novel.entity.MyBooks;
+import top.ttxxly.novel.entity.Bookshelf;
+import top.ttxxly.novel.entity.Const;
+import top.ttxxly.novel.ui.search.SearchActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,7 +87,8 @@ public class BookshelfFragment extends BaseFragment implements BookshelfContract
                 //TODO search
                 break;
             case R.id.menu_bookrack_research:
-                //TODO search
+                startActivity(new Intent(mContainer.getContext(), SearchActivity.class));
+
                 break;
             default:
                 break;
@@ -94,11 +99,11 @@ public class BookshelfFragment extends BaseFragment implements BookshelfContract
     /**
      * 装配数据
      *
-     * @param myBooks
+     * @param bookshelf
      */
     @Override
-    public void init(MyBooks myBooks) {
-        bookrackAdapter = new BookshelfAdapter(myBooks, mContainer);
+    public void init(Bookshelf bookshelf) {
+        bookrackAdapter = new BookshelfAdapter(bookshelf, mContainer);
         rv_bookrack.setAdapter(bookrackAdapter);
     }
 
@@ -117,12 +122,21 @@ public class BookshelfFragment extends BaseFragment implements BookshelfContract
 
     }
 
-    /**
-     * 书架为空时，设为空视图
-     */
     @Override
     public void setEmptyView() {
         bookshelfEmpty.setVisibility(View.VISIBLE);
         rv_bookrack.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public Boolean getLoginStatus() {
+        SharedPreferences sp = mContainer.getContext().getSharedPreferences(Const.USER_INFO, 0);
+        return sp.getBoolean(Const.LOGIN_STATUS, false);
+    }
+
+    @Override
+    public int getUserId() {
+        SharedPreferences sp = mContainer.getContext().getSharedPreferences(Const.USER_INFO, 0);
+        return sp.getInt(Const.USER_ID, -1);
     }
 }

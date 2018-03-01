@@ -1,11 +1,13 @@
 package top.ttxxly.novel.ui.launcher;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import top.ttxxly.novel.R;
+import top.ttxxly.novel.entity.Const;
 import top.ttxxly.novel.ui.home.HomeActivity;
 
 /**
@@ -36,5 +38,18 @@ public class LauncherActivity extends AppCompatActivity implements LauncherContr
                 finish();
             }
         }, 3000);
+    }
+
+    @Override
+    public void initLoginStatus() {
+        //1、打开Preferences，名称为setting，如果存在则打开它，否则创建新的Preferences
+        SharedPreferences userInfo = getSharedPreferences(Const.USER_INFO, 0);
+        //2、让setting处于编辑状态
+        SharedPreferences.Editor editor = userInfo.edit();
+        //3、存放数据
+        editor.putInt(Const.USER_ID, -1);
+        editor.putBoolean(Const.LOGIN_STATUS, false);
+        //4、完成提交
+        editor.apply();
     }
 }

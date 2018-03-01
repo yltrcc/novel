@@ -2,7 +2,7 @@ package top.ttxxly.novel.ui.fragment.bookshelf;
 
 import top.ttxxly.novel.base.BasePresenter;
 import top.ttxxly.novel.base.BaseView;
-import top.ttxxly.novel.entity.MyBooks;
+import top.ttxxly.novel.entity.Bookshelf;
 
 /**
  * Description:
@@ -15,14 +15,33 @@ import top.ttxxly.novel.entity.MyBooks;
 public class BookshelfContract {
 
     interface view extends BaseView {
-        void init(MyBooks myBooks);
+        void init(Bookshelf Bookshelf);
         void addDataSource();
         void getDataSource();
         void setDataSource();
+
+        /**
+         * 书架信息为空时，设置为空视图
+         */
         void setEmptyView();
+
+        /**
+         * 获取登录状态
+         * @return true 表示已登录， false 表示没有登录
+         */
+        Boolean getLoginStatus();
+
+        /**
+         * 获取用户ID
+         * @return 用户ID -1 表示无用户
+         */
+        int getUserId();
     }
 
     interface presenter extends BasePresenter{
+        /**
+         * 获取书架信息
+         */
         void getDataSource();
     }
 }

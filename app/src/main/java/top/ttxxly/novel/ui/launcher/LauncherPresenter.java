@@ -1,12 +1,14 @@
 package top.ttxxly.novel.ui.launcher;
 
+import android.content.SharedPreferences;
+
 /**
  * Description:
  * Created by ttxxly on 2017-11-03 12:00
  * Updated by ttxxly on 2017-11-03 12:00
  * Email: ttxxly@gmail.com
  */
-public class LauncherPresenter implements LauncherContract.Presenter{
+public class LauncherPresenter implements LauncherContract.Presenter {
 
     private LauncherContract.View mView;
 
@@ -17,6 +19,7 @@ public class LauncherPresenter implements LauncherContract.Presenter{
 
     @Override
     public void start() {
+        mView.initLoginStatus();
         mView.goHomeActivity();
     }
 

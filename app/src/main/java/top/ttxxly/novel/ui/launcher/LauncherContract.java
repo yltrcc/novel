@@ -18,6 +18,10 @@ public class LauncherContract {
          * 跳转主页面
          */
         void goHomeActivity();
+        /**
+         * 初始化登录状态
+         */
+        void initLoginStatus();
     }
 
     interface Presenter extends BasePresenter {

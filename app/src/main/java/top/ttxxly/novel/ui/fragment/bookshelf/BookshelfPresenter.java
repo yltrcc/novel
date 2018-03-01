@@ -5,17 +5,9 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
-import top.ttxxly.novel.entity.MyBooks;
+import top.ttxxly.novel.entity.Bookshelf;
+import top.ttxxly.novel.entity.Const;
 import top.ttxxly.novel.utils.FileUtils;
-
-import static android.content.Context.MODE_PRIVATE;
-import static javax.xml.transform.OutputKeys.ENCODING;
 
 /**
  * Description:
@@ -26,7 +18,7 @@ import static javax.xml.transform.OutputKeys.ENCODING;
  */
 
 public class BookshelfPresenter implements BookshelfContract.presenter {
-    private BookshelfContract.view view; //只在当前类有效
+    private BookshelfContract.view view;
     private Context context;
 
     public BookshelfPresenter(BookshelfContract.view view, Context context) {
@@ -47,12 +39,37 @@ public class BookshelfPresenter implements BookshelfContract.presenter {
     @Override
     public void getDataSource() {
         //获取应用书架信息
-        String jsonString = FileUtils.getFileContent("MyBooks", context);
+        // 1. 获取用户登录状态
+        Boolean mLoginStatus = view.getLoginStatus();
+        // 2. 没有登录，加载默认书架
+        // 3. 已登录，加载对应用户书架数据
+
+        if (!mLoginStatus) {
+            //加载默认书架
+            initBookShelf(Const.DEFAULT_BOOKSHELF);
+        }else {
+            //加载用户对应书架信息
+            // 获取用户ID -1表示用户不存在
+            int mUserId = view.getUserId();
+            if (mUserId == -1) {
+                initBookShelf(Const.DEFAULT_BOOKSHELF);
+            }else {
+                initBookShelf(mUserId+"_Bookshelf");
+            }
+        }
+    }
+
+    /**
+     * 根据 文件名 读取数据
+     * @param fileName 文件名
+     */
+    private void initBookShelf(String fileName){
+        String jsonString = FileUtils.getFileContent(fileName, context);
         System.out.println(jsonString);
         if (jsonString != null) {
             Gson gson = new Gson();
-            MyBooks myBooks = gson.fromJson(jsonString, MyBooks.class);
-            view.init(myBooks);
+            Bookshelf bookshelf = gson.fromJson(jsonString, Bookshelf.class);
+            view.init(bookshelf);
         } else {
             Toast.makeText(context, "书架为空哦", Toast.LENGTH_LONG).show();
             view.setEmptyView();

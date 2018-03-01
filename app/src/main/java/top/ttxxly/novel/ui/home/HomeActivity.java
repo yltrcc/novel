@@ -69,8 +69,8 @@ public class HomeActivity extends AppCompatActivity implements HomeContract.View
         viewPager = findViewById(R.id.vp_home);
         ArrayList<BaseFragment> list = new ArrayList<>();
         list.add(new BookshelfFragment());
-        list.add(new FictionFragment());
         list.add(new PublicationFragment());
+        list.add(new FictionFragment());
         list.add(new UserFragment());
         viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), list));
     }

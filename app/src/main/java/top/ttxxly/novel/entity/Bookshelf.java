@@ -6,7 +6,7 @@ import java.util.List;
  * Created by Administrator on 2/26/2018.
  */
 
-public class MyBooks {
+public class Bookshelf {
 
 
     /**
