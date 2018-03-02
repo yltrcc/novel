@@ -13,7 +13,8 @@ public class SearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        //使用的是开源的方案， 不算太好 看见一个好的， 有时间研究研究
         TagGroup mTagGroup = findViewById(R.id.TGSearch);
-        mTagGroup.setTags(new String[]{"影帝的老婆", "花豹突击队", "一言不合就卖萌", "最强武神", "大数据修仙", "天才高手"});
+        mTagGroup.setTags(new String[]{ "一言不合就卖萌", "最强武神", "大数据修仙", "天才高手"});
     }
 }
