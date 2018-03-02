@@ -9,13 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="vertical"
-        android:background="@drawable/touch_bg">
+        android:background="@drawable/touch_bg"
+        android:orientation="vertical">
+
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_gravity="center_horizontal"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/portrait"/>
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/portrait" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,163 +26,148 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="5dp"
             android:text="ttxxly"
-            android:textSize="20sp" />
+            android:textColor="#000000" />
     </LinearLayout>
 
 
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="@drawable/touch_bg"
-        android:padding="15dp">
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp">
 
         <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:id="@+id/ivUserAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/home_find_rank" />
+            android:background="@mipmap/ic_account_circle_black_24dp" />
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/ivIcon"
-            android:text="我的账户" />
+            android:layout_toRightOf="@id/ivUserAccount"
+            android:text="我的账户"
+            android:textColor="#000000" />
 
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ios_arrow" />
     </RelativeLayout>
+
     <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:background="@drawable/touch_bg"
-        android:padding="15dp">
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp">
 
         <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:id="@+id/ivUserBrowsingHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/home_find_rank" />
+            android:background="@mipmap/ic_history_black_24dp" />
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/ivIcon"
-            android:text="浏览记录" />
+            android:layout_toRightOf="@id/ivUserBrowsingHistory"
+            android:text="浏览记录"
+            android:textColor="#000000"
+             />
 
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ios_arrow" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/touch_bg"
-        android:padding="15dp">
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp">
 
         <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:id="@+id/ivUserBookList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/home_find_rank" />
+            android:background="@mipmap/ic_library_books_black_24dp" />
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/ivIcon"
-            android:text="主题书单" />
+            android:layout_toRightOf="@id/ivUserBookList"
+            android:text="主题书单"
+            android:textColor="#000000"
+             />
 
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ios_arrow" />
     </RelativeLayout>
+
     <RelativeLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/touch_bg"
-        android:padding="15dp"
-       >
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp">
 
         <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:id="@+id/ivUserCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/home_find_rank" />
+            android:background="@mipmap/ic_chat_black_24dp" />
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/ivIcon"
+            android:layout_toRightOf="@id/ivUserCommunity"
             android:text="社区"
-            />
+            android:textColor="#000000"
+             />
 
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ios_arrow" />
+
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@drawable/touch_bg"
-        android:padding="15dp">
+        android:paddingBottom="15dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp">
 
         <ImageView
-            android:id="@+id/ivIcon"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:id="@+id/ivUserSetting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:background="@drawable/home_find_rank" />
+            android:background="@mipmap/ic_settings_black_24dp" />
 
         <TextView
-            android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="20dp"
-            android:layout_toRightOf="@id/ivIcon"
+            android:layout_toRightOf="@id/ivUserSetting"
             android:text="设置"
-      />
+            android:textColor="#000000"
+          />
 
-        <ImageView
-            android:layout_width="18dp"
-            android:layout_height="18dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ios_arrow" />
     </RelativeLayout>
 
 </LinearLayout>

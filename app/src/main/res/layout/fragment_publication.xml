@@ -12,6 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="出版物"
+            android:textColor="#000000"
             android:layout_centerInParent="true"/>
 
         <ImageView
