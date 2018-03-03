@@ -24,9 +24,24 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.jaeger.statusbarutil:library:1.4.0'
     implementation 'com.android.support:support-v4:26.1.0'
+    //Json
     implementation 'com.google.code.gson:gson:2.8.2'
+    //圆形图片
     implementation 'de.hdodenhof:circleimageview:1.3.0'
+    //搜索热词标签
     implementation 'me.gujun.android.taggroup:library:1.4@aar'
+    // Net
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta4'
+    compile 'com.squareup.retrofit2:converter-scalars:2.0.0-beta4'
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
+
+    // Rx
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.5'
+    // Bus
+    compile 'org.greenrobot:eventbus:3.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

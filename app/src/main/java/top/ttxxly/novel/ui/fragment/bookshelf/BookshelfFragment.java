@@ -71,7 +71,7 @@ public class BookshelfFragment extends BaseFragment implements BookshelfContract
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.clear();
-        inflater.inflate(R.menu.bookrackmenu, menu);
+        inflater.inflate(R.menu.bookshelfmenu, menu);
     }
 
     /**

@@ -28,4 +28,9 @@ public class Const {
      */
     public static final String DEFAULT_BOOKSHELF = "defaultBookshelf";
 
+    /**
+     * API 接口 Base Url
+     */
+    public static final String API_BASE_URL = "http://api.zhuishushenqi.com";
+
 }
