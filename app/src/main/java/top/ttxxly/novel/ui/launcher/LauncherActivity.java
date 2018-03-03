@@ -2,13 +2,15 @@ package top.ttxxly.novel.ui.launcher;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.widget.LinearLayout;
 
 import top.ttxxly.novel.R;
 import top.ttxxly.novel.entity.Const;
 import top.ttxxly.novel.ui.home.HomeActivity;
+import top.ttxxly.novel.utils.IMEUtils;
 
 /**
  * @author ttxxly
@@ -21,6 +23,8 @@ public class LauncherActivity extends AppCompatActivity implements LauncherContr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+        LinearLayout mLLLauncher = findViewById(R.id.LLLauncher);
+        IMEUtils.setForceHide(getApplicationContext(), mLLLauncher);
         mPresenter.start();
     }
 

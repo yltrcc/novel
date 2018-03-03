@@ -18,6 +18,7 @@ import java.util.List;
 import me.gujun.android.taggroup.TagGroup;
 import top.ttxxly.novel.R;
 import top.ttxxly.novel.entity.SearchDetail;
+import top.ttxxly.novel.utils.IMEUtils;
 
 /**
  * description: 搜索页面
@@ -42,6 +43,7 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
     private RecyclerView mRVSearchHistory;
     private RecyclerView mRVSearchResultList;
     private SearchConract.Presenter presenter;
+    private TextView mTVSearchChangHotWords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +63,14 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
         mRLSearchHistory = findViewById(R.id.RLSearchHistory);
         mRVSearchHistory = findViewById(R.id.RVSearchHistory);
         mRVSearchResultList = findViewById(R.id.RVSearchResultList);
+        mTVSearchChangHotWords = findViewById(R.id.TVSearchChangHotWords);
+
         //返回
         mIVSearchBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
+                IMEUtils.setForceHide(getBaseContext(), mETSearchContent);
             }
         });
         //用户输入的内容
@@ -82,6 +87,8 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
                     mIVSearchClear.setVisibility(View.VISIBLE);
                 } else {
                     mIVSearchClear.setVisibility(View.INVISIBLE);
+                    hideSearchResults();
+                    showHotWordAndSearchHistory();
                 }
             }
 
@@ -93,12 +100,14 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
 
             }
         });
+        /**
+         * 软键盘 搜索 点击事件
+         */
         mETSearchContent.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEND ||
                         (event != null && event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                    //在输入法中按下搜索之后的操作
                     hideHotWordAndSearchHistory();
                     showSearchResults();
                     //获取输入的内容
@@ -117,15 +126,33 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
             @Override
             public void onClick(View v) {
                 mETSearchContent.setText("");
+                //弹出输入法
+
+                showHotWordAndSearchHistory();
+                hideSearchResults();
             }
         });
-
+        /**
+         * 换一批搜索热词
+         */
+        mTVSearchChangHotWords.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showHotWord();
+            }
+        });
         mTagGroup = findViewById(R.id.TGSearch);
         mTagGroup.setOnTagClickListener(new TagGroup.OnTagClickListener() {
             @Override
             public void onTagClick(String tag) {
                 //热词标签点击操作
+                mETSearchContent.setText(tag);
+                hideHotWordAndSearchHistory();
+                showSearchResults();
+                //隐藏输入法
 
+                //网络请求去获取搜索的结果
+                presenter.getSearchResult(mETSearchContent.getText().toString());
             }
         });
 
@@ -181,4 +208,5 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
     private void showSearchResults() {
         mRVSearchResultList.setVisibility(View.VISIBLE);
     }
+
 }
