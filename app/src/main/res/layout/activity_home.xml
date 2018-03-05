@@ -4,9 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="top.ttxxly.novel.ui.home.HomeActivity">
+    tools:context="com.ttxxly.novel.ui.home.HomeActivity">
 
-    <top.ttxxly.novel.base.BaseViewPager
+    <com.ttxxly.novel.base.BaseViewPager
         android:id="@+id/vp_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

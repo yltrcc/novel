@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:id="@+id/LLLauncher"
     android:layout_height="match_parent"
-    tools:context="top.ttxxly.novel.ui.launcher.LauncherActivity">
+    tools:context="com.ttxxly.novel.ui.launcher.LauncherActivity">
 
     <ImageView
         android:layout_width="match_parent"
