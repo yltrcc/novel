@@ -212,6 +212,9 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
         mRVSearchResultList.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * 显示输入法
+     */
     private void showInputMethod() {
         boolean isShow = false;
         InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -228,6 +231,9 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
         }
     }
 
+    /**
+     * 隐藏输入法
+     */
     private void hideInputMethod() {
         View view = getWindow().peekDecorView();
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
