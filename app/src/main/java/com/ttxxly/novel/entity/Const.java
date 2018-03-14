@@ -33,4 +33,14 @@ public class Const {
      */
     public static final String API_BASE_URL = "http://api.zhuishushenqi.com";
 
+    /**
+     * sp SearchHistory.xml 文件名
+     */
+    public static final String SEARCH_HISTORY = "SearchHistory";
+
+    /**
+     * sp SearchHistory.xml 下 key：SearchHistory
+     */
+    public static final String HISTORY = "SearchHistory";
+
 }

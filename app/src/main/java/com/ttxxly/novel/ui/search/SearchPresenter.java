@@ -1,13 +1,14 @@
 package com.ttxxly.novel.ui.search;
 
+import com.ttxxly.novel.api.BookApi;
+import com.ttxxly.novel.entity.HotWord;
+import com.ttxxly.novel.entity.SearchResults;
+
 import java.util.List;
 
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-import com.ttxxly.novel.api.BookApi;
-import com.ttxxly.novel.entity.HotWord;
-import com.ttxxly.novel.entity.SearchDetail;
 
 /**
  * Description:
@@ -32,6 +33,7 @@ public class SearchPresenter implements SearchConract.Presenter {
 
         bookApi = new BookApi();
         getSearchHotWord();
+        mView.showSearchHistory(mView.getSearchHistory());
     }
 
     @Override
@@ -78,11 +80,11 @@ public class SearchPresenter implements SearchConract.Presenter {
     }
 
     @Override
-    public void getSearchResult(String search) {
+    public void getSearchResult(final String search) {
         bookApi.getSearchResult(search)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<SearchDetail>() {
+                .subscribe(new Observer<SearchResults>() {
                     @Override
                     public void onCompleted() {
 
@@ -94,13 +96,12 @@ public class SearchPresenter implements SearchConract.Presenter {
                     }
 
                     @Override
-                    public void onNext(SearchDetail searchDetail) {
-                        List<SearchDetail.SearchBooks> list = searchDetail.books;
-                        if (list != null && !list.isEmpty() && mView != null) {
-                            mView.showSearchResultList(list);
+                    public void onNext(SearchResults searchResults) {
+                        if (searchResults.getTotal()!=0 && mView != null) {
+                            mView.showSearchResultList(searchResults);
                         }
                     }
                 });
-
     }
+
 }

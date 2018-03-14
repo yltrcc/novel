@@ -1,10 +1,11 @@
 package com.ttxxly.novel.ui.search;
 
-import java.util.List;
-
 import com.ttxxly.novel.base.BasePresenter;
 import com.ttxxly.novel.base.BaseView;
-import com.ttxxly.novel.entity.SearchDetail;
+import com.ttxxly.novel.entity.SearchResults;
+import com.ttxxly.novel.entity.SearchHistory;
+
+import java.util.List;
 
 /**
  * Description:
@@ -21,15 +22,27 @@ public class SearchConract {
          */
         void initView();
 
+        /**
+         * 展示搜索热词
+         * @param list
+         */
         void showHotWordList(List<String> list);
 
         void showAutoCompleteList(List<String> list);
 
         /**
-         * 展示搜索结果
-         * @param list
+         * 展示搜索历史
          */
-        void showSearchResultList(List<SearchDetail.SearchBooks> list);
+        void showSearchHistory(SearchHistory history);
+        /**
+         * 展示搜索结果
+         * @param
+         */
+        void showSearchResultList(SearchResults searchResults);
+        /**
+         * 获取搜索历史记录
+         */
+        SearchHistory getSearchHistory();
     }
 
     interface  Presenter extends BasePresenter {
@@ -50,5 +63,7 @@ public class SearchConract {
          * @param search
          */
         void getSearchResult(String search);
+
+
     }
 }

@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/ivBookCover"
+        android:id="@+id/ivSearchResultsBookCover"
         android:layout_width="45dp"
         android:layout_height="60dp"
         android:layout_alignParentLeft="true"
@@ -19,10 +19,10 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/ivBookCover">
+        android:layout_toRightOf="@+id/ivSearchResultsBookCover">
 
         <TextView
-            android:id="@+id/tvBookListTitle"
+            android:id="@+id/tvSearchResultsBookListTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -33,10 +33,10 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvLatelyFollower"
+            android:id="@+id/tvSearchResultsLatelyFollower"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvBookListTitle"
+            android:layout_below="@id/tvSearchResultsBookListTitle"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="549人在追 | "
@@ -44,11 +44,11 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/tvRetentionRatio"
+            android:id="@+id/tvSearchResultsRetentionRatio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvBookListTitle"
-            android:layout_toRightOf="@id/tvLatelyFollower"
+            android:layout_below="@id/tvSearchResultsBookListTitle"
+            android:layout_toRightOf="@id/tvSearchResultsLatelyFollower"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="60.1%读者留存 | "
@@ -56,11 +56,11 @@
             android:textSize="13sp" />
 
         <TextView
-            android:id="@+id/tvBookListAuthor"
+            android:id="@+id/tvSearchResultsBookListAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvBookListTitle"
-            android:layout_toRightOf="@id/tvRetentionRatio"
+            android:layout_below="@id/tvSearchResultsBookListTitle"
+            android:layout_toRightOf="@id/tvSearchResultsRetentionRatio"
             android:ellipsize="end"
             android:singleLine="true"
             android:text="大江入海著"

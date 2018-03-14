@@ -49,7 +49,7 @@ import com.ttxxly.novel.entity.RankingList;
 import com.ttxxly.novel.entity.Rankings;
 import com.ttxxly.novel.entity.Recommend;
 import com.ttxxly.novel.entity.RecommendBookList;
-import com.ttxxly.novel.entity.SearchDetail;
+import com.ttxxly.novel.entity.SearchResults;
 
 /**
  * https://github.com/JustWayward/BookReader
@@ -122,7 +122,7 @@ public interface BookApiService {
      * @return
      */
     @GET("/book/fuzzy-search")
-    Observable<SearchDetail> searchBooks(@Query("query") String query);
+    Observable<SearchResults> searchBooks(@Query("query") String query);
 
     /**
      * 通过作者查询书名

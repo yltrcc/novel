@@ -33,7 +33,7 @@ import com.ttxxly.novel.entity.RankingList;
 import com.ttxxly.novel.entity.Rankings;
 import com.ttxxly.novel.entity.Recommend;
 import com.ttxxly.novel.entity.RecommendBookList;
-import com.ttxxly.novel.entity.SearchDetail;
+import com.ttxxly.novel.entity.SearchResults;
 
 /**
  * https://github.com/JustWayward/BookReader
@@ -77,7 +77,7 @@ public class BookApi {
         return service.autoComplete(query);
     }
 
-    public Observable<SearchDetail> getSearchResult(String query) {
+    public Observable<SearchResults> getSearchResult(String query) {
         return service.searchBooks(query);
     }
 
