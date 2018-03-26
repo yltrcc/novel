@@ -8,7 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ttxxly.novel.GlideApp;
 import com.ttxxly.novel.R;
+import com.ttxxly.novel.entity.Const;
 import com.ttxxly.novel.entity.SearchResults;
 
 /**
@@ -22,7 +24,6 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<RecyclerView.View
     private SearchResults searchResults;
     private Context context;
     private OnItemClickListener mOnItemClickListener = null;
-
 
     SearchResultsAdapter(Context context, SearchResults searchResults) {
         this.searchResults = searchResults;
@@ -56,6 +57,11 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<RecyclerView.View
         searchResultsHolder.mFollower.setText(searchResults.getBooks().get(position).getLatelyFollower()
         + "人在追 | ");
         //封面
+        GlideApp
+                .with(context)
+                .load(Const.IMG_BASE_URL + searchResults.getBooks().get(position).getCover())
+                .placeholder(R.drawable.cover_default)
+                .into( searchResultsHolder.mCover);
 
     }
 
@@ -90,5 +96,9 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<RecyclerView.View
                 mOnItemClickListener.onClick(v, getAdapterPosition());
             }
         }
+    }
+
+    public void clear(){
+        searchResults.setTotal(0);
     }
 }

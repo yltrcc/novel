@@ -13,7 +13,21 @@ import java.util.List;
 public class SearchHistory {
 
 
+    /**
+     * SearchHistory : ["fsfsfs","gdgrgd"]
+     * total : 2
+     */
+
+    private int total;
     private List<String> SearchHistory;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
 
     public List<String> getSearchHistory() {
         return SearchHistory;

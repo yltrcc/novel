@@ -1,6 +1,7 @@
 package com.ttxxly.novel.ui.search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +25,9 @@ import com.ttxxly.novel.R;
 import com.ttxxly.novel.entity.Const;
 import com.ttxxly.novel.entity.SearchHistory;
 import com.ttxxly.novel.entity.SearchResults;
+import com.ttxxly.novel.ui.bookdetail.BookDetailActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import me.gujun.android.taggroup.TagGroup;
@@ -133,7 +136,15 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
                     //关闭输入法
                     hideInputMethod();
                     //保存搜索历史记录
-                    searchHistory.getSearchHistory().add(mETSearchContent.getText().toString());
+                    if (searchHistory.getTotal() == 0) {
+                        List<String> tmp = new ArrayList<>();
+                        tmp.add(mETSearchContent.getText().toString());
+                        searchHistory.setSearchHistory(tmp);
+                        searchHistory.setTotal(searchHistory.getSearchHistory().size());
+                    }else {
+                        searchHistory.getSearchHistory().add(mETSearchContent.getText().toString());
+                        searchHistory.setTotal(searchHistory.getSearchHistory().size());
+                    }
                     //2、让setting处于编辑状态
                     SharedPreferences.Editor editor = sp.edit();
                     //3、存放数据
@@ -183,7 +194,15 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
                 hideHotWordAndSearchHistory();
                 showSearchResults();
                 //保存搜索历史记录
-                searchHistory.getSearchHistory().add(tag);
+                if (searchHistory.getTotal() == 0) {
+                    List<String> tmp = new ArrayList<>();
+                    tmp.add(tag);
+                    searchHistory.setSearchHistory(tmp);
+                    searchHistory.setTotal(searchHistory.getSearchHistory().size());
+                }else {
+                    searchHistory.getSearchHistory().add(tag);
+                    searchHistory.setTotal(searchHistory.getSearchHistory().size());
+                }
                 //2、让setting处于编辑状态
                 SharedPreferences.Editor editor = sp.edit();
                 //3、存放数据
@@ -203,6 +222,7 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
             public void onClick(View view) {
                 //删除真实数据
                 searchHistory.getSearchHistory().clear();
+                searchHistory.setTotal(0);
                 //更新 sp
                 //2、让setting处于编辑状态
                 SharedPreferences.Editor editor = sp.edit();
@@ -230,50 +250,54 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
 
     @Override
     public void showSearchHistory(SearchHistory history) {
-        this.searchHistory = history;
-        Toast.makeText(this, "已经获取了搜索历史记录！！", Toast.LENGTH_SHORT).show();
-        mRVSearchHistory.setLayoutManager(new LinearLayoutManager(this));
-        searchHistoryAdapter = new SearchHistoryAdapter(this, searchHistory);
-        mRVSearchHistory.setAdapter(searchHistoryAdapter);
-        mRVSearchHistory.setItemAnimator(new DefaultItemAnimator());
-        searchHistoryAdapter.setOnItemClickListener(new SearchHistoryAdapter.OnItemClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                switch (view.getId()) {
-                    case R.id.IVSearchHistoryItemClearContent:
-                        Toast.makeText(SearchActivity.this, "您点击了第"+position+"个位置的删除图标", Toast.LENGTH_SHORT).show();
-                        //删除真实数据
-                        searchHistory.getSearchHistory().remove(position);
-                        //更新 sp
-                        //2、让setting处于编辑状态
-                        SharedPreferences.Editor editor = sp.edit();
-                        //3、存放数据
-                        String tmp = new Gson().toJson(searchHistory);
-                        System.out.println("dfsds"+tmp);
-                        editor.putString(Const.HISTORY, tmp);
-                        //4、完成提交
-                        editor.apply();
-                        searchHistoryAdapter.notifyItemRemoved(position);
-                        searchHistoryAdapter.notifyDataSetChanged();
-                        break;
-                    default:
-                        Toast.makeText(SearchActivity.this, "您点击了第"+position+"个位置！！", Toast.LENGTH_SHORT).show();
-                        break;
+        if (history.getTotal() == 0) {
+            mRVSearchHistory.setVisibility(View.GONE);
+        }else {
+            this.searchHistory = history;
+            Toast.makeText(this, "已经获取了搜索历史记录！！", Toast.LENGTH_SHORT).show();
+            mRVSearchHistory.setLayoutManager(new LinearLayoutManager(this));
+            searchHistoryAdapter = new SearchHistoryAdapter(this, searchHistory);
+            mRVSearchHistory.setAdapter(searchHistoryAdapter);
+            mRVSearchHistory.setItemAnimator(new DefaultItemAnimator());
+            searchHistoryAdapter.setOnItemClickListener(new SearchHistoryAdapter.OnItemClickListener() {
+                @Override
+                public void onClick(View view, int position) {
+                    switch (view.getId()) {
+                        case R.id.IVSearchHistoryItemClearContent:
+                            Toast.makeText(SearchActivity.this, "您点击了第"+position+"个位置的删除图标", Toast.LENGTH_SHORT).show();
+                            //删除真实数据
+                            searchHistory.getSearchHistory().remove(position);
+                            //更新 sp
+                            //2、让setting处于编辑状态
+                            SharedPreferences.Editor editor = sp.edit();
+                            //3、存放数据
+                            String tmp = new Gson().toJson(searchHistory);
+                            System.out.println("dfsds"+tmp);
+                            editor.putString(Const.HISTORY, tmp);
+                            //4、完成提交
+                            editor.apply();
+                            searchHistoryAdapter.notifyItemRemoved(position);
+                            searchHistoryAdapter.notifyDataSetChanged();
+                            break;
+                        default:
+                            Toast.makeText(SearchActivity.this, "您点击了第"+position+"个位置！！", Toast.LENGTH_SHORT).show();
+                            break;
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override
     public void showSearchResultList(SearchResults searchResults) {
         mRVSearchResultList.setLayoutManager(new LinearLayoutManager(this));
         searchResultsAdapter = new SearchResultsAdapter(this,searchResults);
-        //清空以前的搜索记录
         mRVSearchResultList.setAdapter(searchResultsAdapter);
         searchResultsAdapter.setOnItemClickListener(new SearchResultsAdapter.OnItemClickListener() {
             @Override
             public void onClick(View view, int position) {
                 Toast.makeText(SearchActivity.this, "您点击了第"+position+"个位置！！", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), BookDetailActivity.class));
             }
         });
     }
@@ -306,6 +330,8 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
 
     private void hideSearchResults() {
         mRVSearchResultList.setVisibility(View.GONE);
+        //将总数置为0
+        searchResultsAdapter.clear();
     }
 
     private void showSearchResults() {
@@ -347,8 +373,11 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
 
     @Override
     public SearchHistory getSearchHistory() {
-        String history = sp.getString(Const.HISTORY, null);
-        return new Gson().fromJson(history, SearchHistory.class);
+        String history = sp.getString(Const.HISTORY, "{\"total\":0}");
+        searchHistory = new Gson().fromJson(history, SearchHistory.class);
+        System.out.println("111"+new Gson().toJson(searchHistory));
+
+        return searchHistory;
     }
 
 }

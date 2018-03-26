@@ -25,7 +25,6 @@ public class LauncherActivity extends AppCompatActivity implements LauncherContr
         LinearLayout mLLLauncher = findViewById(R.id.LLLauncher);
         mPresenter.start();
     }
-
     @Override
     public void goHomeActivity() {
         Handler handler = new Handler();
