@@ -64,6 +64,7 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
     private SharedPreferences sp;
     private SearchResultsAdapter searchResultsAdapter;
     private TextView mClearSearchHistory;
+    private SearchResults searchResults;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -289,7 +290,8 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
     }
 
     @Override
-    public void showSearchResultList(SearchResults searchResults) {
+    public void showSearchResultList(SearchResults results) {
+        this.searchResults = results;
         mRVSearchResultList.setLayoutManager(new LinearLayoutManager(this));
         searchResultsAdapter = new SearchResultsAdapter(this,searchResults);
         mRVSearchResultList.setAdapter(searchResultsAdapter);
@@ -297,7 +299,13 @@ public class SearchActivity extends AppCompatActivity implements SearchConract.V
             @Override
             public void onClick(View view, int position) {
                 Toast.makeText(SearchActivity.this, "您点击了第"+position+"个位置！！", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(), BookDetailActivity.class));
+                SearchResults.BooksBean booksBean = searchResults.getBooks().get(position);
+                Intent intent=new Intent();
+                intent.setClass(SearchActivity.this, BookDetailActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString(Const.BOOKSBEAN, new Gson().toJson(booksBean));
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }

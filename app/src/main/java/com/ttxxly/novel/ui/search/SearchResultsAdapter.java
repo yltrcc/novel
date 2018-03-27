@@ -61,13 +61,14 @@ public class SearchResultsAdapter extends RecyclerView.Adapter<RecyclerView.View
                 .with(context)
                 .load(Const.IMG_BASE_URL + searchResults.getBooks().get(position).getCover())
                 .placeholder(R.drawable.cover_default)
+                .error(R.drawable.cover_default)
                 .into( searchResultsHolder.mCover);
 
     }
 
     @Override
     public int getItemCount() {
-        return searchResults.getTotal();
+        return searchResults.getBooks().size();
     }
 
 
