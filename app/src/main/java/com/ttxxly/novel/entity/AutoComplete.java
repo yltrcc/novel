@@ -1,9 +1,9 @@
 package com.ttxxly.novel.entity;
 
 
-import java.util.List;
-
 import com.ttxxly.novel.base.Base;
+
+import java.util.List;
 
 /**
  * @author yuyh.
