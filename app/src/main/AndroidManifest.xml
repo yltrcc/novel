@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ttxxly.novel">
+    package="com.ttxxly.reader">
 
     <!-- SDCard中创建与删除文件权限 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
@@ -32,7 +32,8 @@
         <activity android:name=".ui.history.HistoryActivity" />
         <activity android:name=".ui.information.UserInformationActivity" />
         <activity android:name=".ui.login.LoginActivity" />
-        <activity android:name=".ui.bookdetail.BookDetailActivity"></activity>
+        <activity android:name=".ui.bookdetail.BookDetailActivity" />
+        <activity android:name=".ui.read.ReadActivity"></activity>
     </application>
 
 </manifest>
