@@ -61,4 +61,10 @@ public class Const {
 
     public static String PATH_TXT = PATH_DATA + "/book/";
 
+    public static final String ISNIGHT = "isNight";
+
+    public static final String MALE = "male";
+
+    public static final String FEMALE = "female";
+
 }
