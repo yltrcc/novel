@@ -67,4 +67,11 @@ public class Const {
 
     public static final String FEMALE = "female";
 
+    /**
+     * key
+     */
+    public static final String INTENT_BEAN = "recommendBooksBean";
+
+    public static final String INTENT_SD = "isFromSD";
+
 }

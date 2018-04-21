@@ -172,7 +172,7 @@ public class OverlappedWidget extends BaseReadView {
         }
         mScroller.startScroll((int) mTouch.x, (int) mTouch.y, dx, 0, 300);
     }
-
+    @Override
     public void setBitmaps(Bitmap bm1, Bitmap bm2) {
         mCurPageBitmap = bm1;
         mNextPageBitmap = bm2;
