@@ -16,9 +16,6 @@ public class BookshelfContract {
 
     interface view extends BaseView {
         void init(Bookshelf Bookshelf);
-        void addDataSource();
-        void getDataSource();
-        void setDataSource();
 
         /**
          * 书架信息为空时，设置为空视图

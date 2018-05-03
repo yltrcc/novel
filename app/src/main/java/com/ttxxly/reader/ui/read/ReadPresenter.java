@@ -21,18 +21,18 @@ import rx.schedulers.Schedulers;
  */
 public class ReadPresenter implements ReadContract.Presenter{
 
-    private Context mContext;
+
     private ReadContract.View mView;
     private BookApi bookApi;
 
-    ReadPresenter(Context mContext, ReadContract.View mView){
-        this.mContext = mContext;
+    ReadPresenter(ReadContract.View mView){
         this.mView = mView;
     }
 
     @Override
     public void start() {
         bookApi = new BookApi();
+        mView.init();
     }
 
     @Override
@@ -63,7 +63,7 @@ public class ReadPresenter implements ReadContract.Presenter{
                     public void onNext(BookMixAToc bookMixAToc) {
                         List<BookMixAToc.mixToc.Chapters> list = bookMixAToc.mixToc.chapters;
                         if (list != null && !list.isEmpty() && mView != null) {
-                            mView.showBookToc(list);
+                            mView.SetBookToc(list);
                         }
                     }
                 });

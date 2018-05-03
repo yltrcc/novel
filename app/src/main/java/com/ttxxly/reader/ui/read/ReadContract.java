@@ -26,7 +26,7 @@ public class ReadContract {
          * 展示目录
          * @param list
          */
-        void showBookToc(List<BookMixAToc.mixToc.Chapters> list);
+        void SetBookToc(List<BookMixAToc.mixToc.Chapters> list);
 
         /**
          * 展示阅读的章节

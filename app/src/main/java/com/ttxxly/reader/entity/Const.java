@@ -1,7 +1,6 @@
 package com.ttxxly.reader.entity;
 
 import com.ttxxly.reader.utils.AppUtils;
-import com.ttxxly.reader.utils.FileUtils;
 
 /**
  * Created by Administrator on 3/1/2018.
@@ -17,12 +16,12 @@ public class Const {
     public static final String USER_INFO = "userInfo";
 
     /**
-     * sp userInfo.xml 下 用户ID
+     * sp userInfo.xml 下 用户ID String
      */
     public static final String USER_ID = "user_id";
 
     /**
-     * sp userInfo.xml 下 登录状态
+     * sp userInfo.xml 下 登录状态 Boolean
      */
     public static final String LOGIN_STATUS = "loginStatus";
 
@@ -57,9 +56,6 @@ public class Const {
     public static final String BOOKSBEAN = "booksBean";
 
 
-    public static String PATH_DATA = FileUtils.createRootPath(AppUtils.getAppContext()) + "/cache";
-
-    public static String PATH_TXT = PATH_DATA + "/book/";
 
     public static final String ISNIGHT = "isNight";
 
@@ -73,5 +69,14 @@ public class Const {
     public static final String INTENT_BEAN = "recommendBooksBean";
 
     public static final String INTENT_SD = "isFromSD";
+
+    public static final String BOOKID = "BookId";
+
+    /**
+     * 现在阅读的章节
+     */
+    public static final String CURRENT_CHAPTER = "CurrentChapter";
+
+
 
 }

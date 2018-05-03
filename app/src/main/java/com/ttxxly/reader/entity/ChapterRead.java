@@ -94,5 +94,29 @@ public class ChapterRead extends Base {
             this.body = body;
             this.cpContent = cpContent;
         }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getBody() {
+            return body;
+        }
+
+        public void setBody(String body) {
+            this.body = body;
+        }
+
+        public String getCpContent() {
+            return cpContent;
+        }
+
+        public void setCpContent(String cpContent) {
+            this.cpContent = cpContent;
+        }
     }
 }

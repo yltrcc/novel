@@ -17,6 +17,7 @@ public class Bookshelf {
     private int total;
     private List<BooksBean> books;
 
+
     public int getTotal() {
         return total;
     }
@@ -26,10 +27,12 @@ public class Bookshelf {
     }
 
     public List<BooksBean> getBooks() {
+        total = books.size();
         return books;
     }
 
     public void setBooks(List<BooksBean> books) {
+        total = books.size();
         this.books = books;
     }
 
@@ -117,5 +120,13 @@ public class Bookshelf {
         public void setReadChapterTitle(String readChapterTitle) {
             this.readChapterTitle = readChapterTitle;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Bookshelf{" +
+                "total=" + total +
+                ", books=" + books +
+                '}';
     }
 }

@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.ttxxly.reader.R;
 import com.ttxxly.reader.base.BaseFragment;
@@ -103,29 +104,18 @@ public class BookshelfFragment extends BaseFragment implements BookshelfContract
      */
     @Override
     public void init(Bookshelf bookshelf) {
+        System.out.println("书架数据放松放松："+bookshelf.toString());
         bookrackAdapter = new BookshelfAdapter(bookshelf, mContainer);
         rv_bookrack.setAdapter(bookrackAdapter);
+        bookshelfEmpty.setVisibility(View.GONE);
+        rv_bookrack.setVisibility(View.VISIBLE);
     }
 
-    @Override
-    public void addDataSource() {
-
-    }
-
-    @Override
-    public void getDataSource() {
-
-    }
-
-    @Override
-    public void setDataSource() {
-
-    }
 
     @Override
     public void setEmptyView() {
         bookshelfEmpty.setVisibility(View.VISIBLE);
-        rv_bookrack.setVisibility(View.INVISIBLE);
+        rv_bookrack.setVisibility(View.GONE);
     }
 
     @Override

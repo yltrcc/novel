@@ -48,7 +48,7 @@ public class LauncherActivity extends AppCompatActivity implements LauncherContr
         //2、让setting处于编辑状态
         SharedPreferences.Editor editor = userInfo.edit();
         //3、存放数据
-        editor.putInt(Const.USER_ID, -1);
+        editor.putString(Const.USER_ID, "");
         editor.putBoolean(Const.LOGIN_STATUS, false);
         //4、完成提交
         editor.apply();

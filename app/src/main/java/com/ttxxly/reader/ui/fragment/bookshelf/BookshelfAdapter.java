@@ -7,8 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ttxxly.reader.GlideApp;
 import com.ttxxly.reader.R;
 import com.ttxxly.reader.entity.Bookshelf;
+import com.ttxxly.reader.entity.Const;
 
 /**
  * Created by Administrator on 2/26/2018.
@@ -48,6 +50,13 @@ public class BookshelfAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         booksHolder.title.setText(Bookshelf.getBooks().get(position).getBookTitle());
         booksHolder.author.setText(Bookshelf.getBooks().get(position).getAuthor());
         booksHolder.latestChapter.setText(Bookshelf.getBooks().get(position).getReadChapterTitle());
+        //封面
+        GlideApp
+                .with(mContainer)
+                .load(Const.IMG_BASE_URL + Bookshelf.getBooks().get(position).getCover())
+                .placeholder(R.drawable.cover_default)
+                .error(R.drawable.cover_default)
+                .into( booksHolder.cover);
     }
 
     class BooksHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -82,6 +91,6 @@ public class BookshelfAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
      */
     @Override
     public int getItemCount() {
-        return Bookshelf.getTotal();
+        return Bookshelf.getBooks().size();
     }
 }
