@@ -18,7 +18,10 @@ package com.ttxxly.reader.api;
 
 import java.util.List;
 
+import retrofit2.http.Field;
+import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 import rx.Observable;
@@ -217,17 +220,23 @@ public interface BookApiService {
     Observable<CategoryListLv2> getCategoryListLv2();
 
     /**
-     * 按分类获取书籍列表
      *
-     * @param gender male、female
-     * @param type   hot(热门)、new(新书)、reputation(好评)、over(完结)
-     * @param major  玄幻
-     * @param minor  东方玄幻、异界大陆、异界争霸、远古神话
-     * @param limit  50
+     * @param gender
+     * @param type
+     * @param major
+     * @param minor
+     * @param start
+     * @param limit
      * @return
      */
     @GET("/book/by-categories")
-    Observable<BooksByCats> getBooksByCats(@Query("gender") String gender, @Query("type") String type, @Query("major") String major, @Query("minor") String minor, @Query("start") int start, @Query("limit") int limit);
+    Observable<BooksByCats> getBooksByCats(
+            @Query("gender") String gender,
+            @Query("type") String type,
+            @Query("major") String major,
+            @Query("minor") String minor,
+            @Query("start") int start,
+            @Query("limit") int limit);
 
 
     /**

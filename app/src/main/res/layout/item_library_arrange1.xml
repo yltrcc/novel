@@ -10,10 +10,221 @@
     android:paddingRight="15dp"
     android:paddingTop="10dp">
 
+    <TextView
+        android:id="@+id/tv_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--  出版小说  --"
+        android:layout_centerInParent="true"
+        android:textColor="#f75000"
+        android:textSize="18sp"/>
+
     <RelativeLayout
+        android:id="@+id/RLBook1"
+        android:layout_marginTop="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        
+        android:layout_height="wrap_content"
+        android:background="@drawable/touch_bg"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/ivBookCover1"
+            android:layout_width="45dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/cover_default"
+            android:scaleType="centerCrop" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/ivBookCover1">
+
+            <TextView
+                android:id="@+id/tvBookTitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="武侠世界自由行"
+                android:textColor="@color/common_h1"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvsLatelyFollower1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookTitle1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="549人在追 | "
+                android:textColor="@color/common_h2"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvRetentionRatio1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookTitle1"
+                android:layout_toRightOf="@id/tvsLatelyFollower1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="60.1%读者留存 | "
+                android:textColor="@color/common_h2"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvBookAuthor1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvBookTitle1"
+                android:layout_toRightOf="@id/tvRetentionRatio1"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="大江入海著"
+                android:textColor="@color/common_h2"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
     </RelativeLayout>
+
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/RLBook2"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/ivBookCover2"
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:src="@drawable/cover_default"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:id="@+id/tvBookTitle2"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="太古剑魔"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/tvBookAuthor2"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任九天" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/RLBook3"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/ivBookCover3"
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:src="@drawable/cover_default"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:id="@+id/tvBookTitle3"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="太古剑魔"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/tvBookAuthor3"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任九天" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/RLBook4"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/ivBookCover4"
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:src="@drawable/cover_default"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:id="@+id/tvBookTitle4"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="太古剑魔"
+                android:textColor="#000000"/>
+            <TextView
+                android:id="@+id/tvBookAuthor4"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任九天" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/RLBook5"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/ivBookCover5"
+                android:layout_width="45dp"
+                android:layout_height="60dp"
+                android:src="@drawable/cover_default"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:id="@+id/tvBookTitle5"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="太古剑魔"
+                android:textColor="@color/common_h1"/>
+            <TextView
+                android:id="@+id/tvBookAuthor5"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="任九天"
+                android:textColor="@color/common_h2"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@drawable/shadow" />
+
+    <TextView
+        android:id="@+id/tvSeeMore"
+        android:layout_marginTop="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看更多"
+        android:textSize="18sp"/>
 
 </LinearLayout>

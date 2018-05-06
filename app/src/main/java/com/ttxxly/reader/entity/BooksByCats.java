@@ -1,57 +1,249 @@
+
 package com.ttxxly.reader.entity;
 
 
+import com.google.gson.annotations.SerializedName;
+import com.ttxxly.reader.base.Base;
+
 import java.util.List;
 
-import com.ttxxly.reader.base.Base;
 
 /**
  * Created by Administrator on 2016/8/15.
  */
 public class BooksByCats extends Base {
-    /**
-     * _id : 555abb2d91d0eb814e5db04f
-     * title : 全职法师
-     * author : 乱
-     * shortIntro : 一觉醒来，世界大变。 熟悉的高中传授的是魔法，告诉大家要成为一名出色的魔法师。 居住的都市之外游荡着袭击人类的魔物妖兽，虎视眈眈。
-     * 崇尚科学的世界变成了崇尚魔法...
-     * cover : /agent/http://image.cmfu.com/books/3489766/3489766.jpg
-     * site : zhuishuvip
-     * majorCate : 玄幻
-     * latelyFollower : 109257
-     * latelyFollowerBase : 0
-     * minRetentionRatio : 0
-     * retentionRatio : 72.88
-     * lastChapter : 第1173章 文泰之死
-     * tags : ["腹黑","玄幻","异界大陆"]
-     */
 
-    public List<BooksBean> books;
+
+    /**
+     * total : 6748
+     * books : [{"_id":"50874f79f98e8f7446000017","author":"南派三叔","cover":"/agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F41574%2F_41574_081848.jpg%2F","shortIntro":"50年前由长沙土夫子（盗墓贼）出土的战国帛书，记载了一个奇特战国古墓的位置，50年后，其中一个土夫子的孙子在他的笔记中发现这个秘密，纠集了一批经验丰富的盗墓贼前去寻宝，谁也没有想到，这个古墓竟然有着这么多诡异的事情：七星疑棺，青眼狐尸，九头蛇柏。这神秘的墓主人到底是谁，他们到底能不能找到真正的棺椁？故事悬念重重，情节跌荡，值得一看。","title":"盗墓笔记","site":"zhuishuvip","majorCate":"出版小说","minorCate":"","sizetype":-1,"superscript":"","contentType":"txt","allowMonthly":false,"banned":0,"latelyFollower":13508,"retentionRatio":40.45,"lastChapter":"《后记》下","tags":[]}]
+     */
+    @SerializedName("total")
+    private int total;
+    @SerializedName("books")
+    private List<BooksBean> books;
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
+    }
+
+    public List<BooksBean> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<BooksBean> books) {
+        this.books = books;
+    }
 
     public static class BooksBean {
-        public String _id;
-        public String title;
-        public String author;
-        public String shortIntro;
-        public String cover;
-        public String site;
-        public String majorCate;
-        public int latelyFollower;
-        public int latelyFollowerBase;
-        public String minRetentionRatio;
-        public String retentionRatio;
-        public String lastChapter;
-        public List<String> tags;
+        /**
+         * _id : 50874f79f98e8f7446000017
+         * author : 南派三叔
+         * cover : /agent/http%3A%2F%2Fimg.1391.com%2Fapi%2Fv1%2Fbookcenter%2Fcover%2F1%2F41574%2F_41574_081848.jpg%2F
+         * shortIntro : 50年前由长沙土夫子（盗墓贼）出土的战国帛书，记载了一个奇特战国古墓的位置，50年后，其中一个土夫子的孙子在他的笔记中发现这个秘密，纠集了一批经验丰富的盗墓贼前去寻宝，谁也没有想到，这个古墓竟然有着这么多诡异的事情：七星疑棺，青眼狐尸，九头蛇柏。这神秘的墓主人到底是谁，他们到底能不能找到真正的棺椁？故事悬念重重，情节跌荡，值得一看。
+         * title : 盗墓笔记
+         * site : zhuishuvip
+         * majorCate : 出版小说
+         * minorCate :
+         * sizetype : -1
+         * superscript :
+         * contentType : txt
+         * allowMonthly : false
+         * banned : 0
+         * latelyFollower : 13508
+         * retentionRatio : 40.45
+         * lastChapter : 《后记》下
+         * tags : []
+         */
+        @SerializedName("_id")
+        private String id;
 
-        public BooksBean(String _id, String cover, String title, String author, String majorCate, String shortIntro, int latelyFollower, String retentionRatio) {
-            this._id = _id;
-            this.cover = cover;
-            this.title = title;
+        @SerializedName("author")
+        private String author;
+
+        @SerializedName("cover")
+        private String cover;
+
+        @SerializedName("shortIntro")
+        private String shortIntro;
+
+        @SerializedName("title")
+        private String title;
+
+        @SerializedName("site")
+        private String site;
+
+        @SerializedName("majorCate")
+        private String majorCate;
+
+        @SerializedName("minorCate")
+        private String minorCate;
+
+        @SerializedName("sizetype")
+        private int sizetype;
+
+        @SerializedName("superscript")
+        private String superscript;
+
+        @SerializedName("contentType")
+        private String contentType;
+
+        @SerializedName("allowMonthly")
+        private boolean allowMonthly;
+
+        @SerializedName("banned")
+        private int banned;
+
+        @SerializedName("latelyFollower")
+        private int latelyFollower;
+
+        @SerializedName("retentionRatio")
+        private double retentionRatio;
+
+        @SerializedName("lastChapter")
+        private String lastChapter;
+
+        @SerializedName("tags")
+        private List<String> tags;
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public void setAuthor(String author) {
             this.author = author;
-            this.majorCate = majorCate;
+        }
+
+        public String getCover() {
+            return cover;
+        }
+
+        public void setCover(String cover) {
+            this.cover = cover;
+        }
+
+        public String getShortIntro() {
+            return shortIntro;
+        }
+
+        public void setShortIntro(String shortIntro) {
             this.shortIntro = shortIntro;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public String getSite() {
+            return site;
+        }
+
+        public void setSite(String site) {
+            this.site = site;
+        }
+
+        public String getMajorCate() {
+            return majorCate;
+        }
+
+        public void setMajorCate(String majorCate) {
+            this.majorCate = majorCate;
+        }
+
+        public String getMinorCate() {
+            return minorCate;
+        }
+
+        public void setMinorCate(String minorCate) {
+            this.minorCate = minorCate;
+        }
+
+        public int getSizetype() {
+            return sizetype;
+        }
+
+        public void setSizetype(int sizetype) {
+            this.sizetype = sizetype;
+        }
+
+        public String getSuperscript() {
+            return superscript;
+        }
+
+        public void setSuperscript(String superscript) {
+            this.superscript = superscript;
+        }
+
+        public String getContentType() {
+            return contentType;
+        }
+
+        public void setContentType(String contentType) {
+            this.contentType = contentType;
+        }
+
+        public boolean isAllowMonthly() {
+            return allowMonthly;
+        }
+
+        public void setAllowMonthly(boolean allowMonthly) {
+            this.allowMonthly = allowMonthly;
+        }
+
+        public int getBanned() {
+            return banned;
+        }
+
+        public void setBanned(int banned) {
+            this.banned = banned;
+        }
+
+        public int getLatelyFollower() {
+            return latelyFollower;
+        }
+
+        public void setLatelyFollower(int latelyFollower) {
             this.latelyFollower = latelyFollower;
+        }
+
+        public double getRetentionRatio() {
+            return retentionRatio;
+        }
+
+        public void setRetentionRatio(double retentionRatio) {
             this.retentionRatio = retentionRatio;
+        }
+
+        public String getLastChapter() {
+            return lastChapter;
+        }
+
+        public void setLastChapter(String lastChapter) {
+            this.lastChapter = lastChapter;
+        }
+
+        public List<String> getTags() {
+            return tags;
+        }
+
+        public void setTags(List<String> tags) {
+            this.tags = tags;
         }
     }
 }

@@ -17,19 +17,21 @@
             android:layout_centerInParent="true"/>
 
         <ImageView
+            android:id="@+id/iv_publication_search"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="10dp"
+            android:padding="10dp"
             android:src="@mipmap/ic_search_black_24dp" />
 
     </RelativeLayout>
 
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_fragment_publication"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_library_header"/>
+        tools:listitem="@layout/item_library_arrange1"/>
 
 </LinearLayout>

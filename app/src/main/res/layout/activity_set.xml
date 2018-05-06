@@ -1,9 +1,320 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ttxxly.reader.ui.set.SetActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/set_header"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:id="@+id/ivSettingsFinish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_arrow_back_black_24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置"
+            android:layout_centerInParent="true"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/set_header"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_setting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:text="设置"
+            android:textColor="@color/common_h3"
+            android:textSize="12dp" />
+
+        <RelativeLayout
+            android:id="@+id/bookshelfSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_setting"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="书架排序"
+                android:textColor="@color/common_h1" />
+
+            <TextView
+                android:id="@+id/mTvSort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawablePadding="10dp"
+                android:text="按最近阅读"
+                android:textColor="@color/common_h2" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/bookshelfSort"
+            android:background="@color/common_divider_narrow" />
+
+        <RelativeLayout
+            android:id="@+id/updateNotification"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_line_1"
+            android:background="@color/common_bg"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="更新通知"
+                android:textColor="@color/common_h1" />
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/updateNotification"
+            android:background="@color/common_divider_narrow"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/provincialTraffic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_line_2"
+            android:background="@drawable/touch_bg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="省流量模式"
+                android:textColor="@color/common_h1" />
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/noneCoverCompat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:minWidth="30dp"
+                android:textOff="关"
+                android:textOn="开" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/provincialTraffic"
+            android:background="@drawable/touch_bg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="休息提醒"
+                android:textColor="@color/common_h1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawablePadding="10dp"
+                android:text="1小时后提醒"
+                android:textColor="@color/common_h2"/>
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line_6"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/provincialTraffic"
+            android:background="@color/common_divider_narrow"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rlFlipStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rest"
+            android:background="@drawable/touch_bg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="阅读页翻页效果"
+                android:textColor="@color/common_h1" />
+
+            <TextView
+                android:id="@+id/tvFlipStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawablePadding="10dp"
+                android:text="翻书效果"
+                android:textColor="@color/common_h2" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlFlipStyle"
+            android:padding="16dp"
+            android:text="更多"
+            android:textColor="@color/common_h3"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:id="@+id/disclaimer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_more"
+            android:background="@color/common_bg"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="免责声明"
+                android:textColor="@color/common_h1" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line_3"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/disclaimer"
+            android:background="@color/common_divider_narrow"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/aboutUs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_line_3"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="关于我们"
+                android:textColor="@color/common_h1" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line_4"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/aboutUs"
+            android:background="@color/common_divider_narrow" />
+
+        <RelativeLayout
+            android:id="@+id/feedBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_line_4"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="意见反馈"
+                android:textColor="@color/common_h1" />
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/view_line_5"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@+id/feedBack"
+            android:background="@color/common_divider_narrow" />
+
+        <RelativeLayout
+            android:id="@+id/cleanCache"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_line_5"
+            android:background="@drawable/touch_bg"
+            android:clickable="true"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="清除缓存"
+                android:textColor="@color/common_h1" />
+
+            <TextView
+                android:id="@+id/tvCacheSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:drawablePadding="10dp"
+                android:text="0.00M"
+                android:textColor="@color/common_h2" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvBottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:text="© 2018 xlLoveLove All Rights Reserved"
+        android:textColor="@color/common_h3"
+        android:textSize="12sp" />
+</RelativeLayout>

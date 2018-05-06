@@ -15,6 +15,10 @@ public class UserContract  {
 
     interface View extends BaseView {
 
+        /**
+         * 初始化组件
+         */
+        void init();
     }
 
     interface Presenter extends BasePresenter {

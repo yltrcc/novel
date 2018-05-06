@@ -2,11 +2,17 @@ package com.ttxxly.reader.api;
 
 import java.util.List;
 
+import okhttp3.OkHttpClient;
+import okhttp3.ResponseBody;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.Query;
 import rx.Observable;
+
+import com.ttxxly.reader.BuildConfig;
 import com.ttxxly.reader.entity.AutoComplete;
 import com.ttxxly.reader.entity.BookDetail;
 import com.ttxxly.reader.entity.BookHelp;
@@ -48,15 +54,26 @@ public class BookApi {
     private BookApiService service;
 
     public BookApi() {
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        if (BuildConfig.DEBUG) {
+            HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+            loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+            builder.addInterceptor(loggingInterceptor);
+        }
+        OkHttpClient client = builder.build();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Const.API_BASE_URL)
                 // 添加Rx适配器
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 // 添加Gson转换器
+                .addConverterFactory(new NullOnEmptyConverterFactory())
                 .addConverterFactory(GsonConverterFactory.create())
+                .client(client)
                 .build();
         service = retrofit.create(BookApiService.class);
     }
+
 
     public static BookApi getInstance() {
         if (instance == null) {
@@ -141,7 +158,7 @@ public class BookApi {
         return service.getCategoryListLv2();
     }
 
-    public Observable<BooksByCats> getBooksByCats(String gender, String type, String major, String minor, int start, @Query("limit") int limit) {
+    public Observable<BooksByCats> getBooksByCats(String gender, String type, String major, String minor, int start, int limit) {
         return service.getBooksByCats(gender, type, major, minor, start, limit);
     }
 

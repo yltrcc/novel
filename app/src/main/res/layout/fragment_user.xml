@@ -6,6 +6,7 @@
     tools:context="com.ttxxly.reader.ui.fragment.user.UserFragment">
 
     <LinearLayout
+        android:id="@+id/LLUserInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -143,6 +144,7 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_user_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
