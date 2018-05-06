@@ -12,6 +12,10 @@ import android.widget.TextView;
 import com.ttxxly.reader.R;
 import com.ttxxly.reader.entity.SearchHistory;
 
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
+
 /**
  * description:
  *
@@ -28,6 +32,8 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
 
     SearchHistoryAdapter(Context context, SearchHistory searchHistory) {
         this.context = context;
+        searchHistory.setSearchHistory(removeStringListDupli(searchHistory.getSearchHistory()));
+        searchHistory.setTotal(searchHistory.getSearchHistory().size());
         this.searchHistory = searchHistory;
     }
 
@@ -81,5 +87,18 @@ public class SearchHistoryAdapter extends RecyclerView.Adapter<RecyclerView.View
                 mOnItemClickListener.onClick(v, getAdapterPosition());
             }
         }
+    }
+
+    /**
+     * 去除重复数据
+     */
+    public List<String> removeStringListDupli(List<String> stringList) {
+        Set<String> set = new LinkedHashSet<>();
+        set.addAll(stringList);
+
+        stringList.clear();
+
+        stringList.addAll(set);
+        return stringList;
     }
 }

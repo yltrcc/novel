@@ -100,8 +100,8 @@ public class PageFactory {
         mVisibleWidth = mWidth - marginWidth * 2;
         mPageLineCount = mVisibleHeight / (mFontSize + mLineSpace);
         rectF = new Rect(0, 0, mWidth, mHeight);
-        mbBufferLen = chapterRead.chapter.body.length();
-        text = chapterRead.chapter.body;
+        mbBufferLen = chapterRead.chapter.cpContent.length();
+        text = chapterRead.chapter.cpContent;
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setTextSize(mFontSize);
         mPaint.setColor(Color.BLACK);

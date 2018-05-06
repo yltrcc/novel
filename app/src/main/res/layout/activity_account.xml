@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.ttxxly.reader.ui.history.HistoryActivity">
+    tools:context="com.ttxxly.reader.ui.account.AccountActivity">
 
     <RelativeLayout
+        android:id="@+id/set_header"
         android:layout_width="match_parent"
         android:layout_height="56dp">
 
         <ImageView
-            android:id="@+id/ivHistoryFinish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_arrow_back_black_24dp"
@@ -21,16 +21,32 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="浏览记录"
+            android:text="账户信息"
             android:layout_centerInParent="true"
             android:textColor="#000000"
             android:textSize="18sp" />
 
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvHistory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/portrait"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center_horizontal"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="xoLoveLove"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="这家伙很懒，什么都没有留下"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

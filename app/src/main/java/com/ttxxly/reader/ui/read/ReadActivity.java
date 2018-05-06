@@ -1,5 +1,6 @@
 package com.ttxxly.reader.ui.read;
 
+import android.support.annotation.RequiresPermission;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,10 +9,14 @@ import android.widget.FrameLayout;
 import android.widget.ListPopupWindow;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.ttxxly.reader.R;
 import com.ttxxly.reader.entity.BookMixAToc;
+import com.ttxxly.reader.entity.Chapter;
 import com.ttxxly.reader.entity.ChapterRead;
 import com.ttxxly.reader.entity.Const;
+import com.ttxxly.reader.entity.Rank;
+import com.ttxxly.reader.entity.RankingList;
 import com.ttxxly.reader.entity.Recommend;
 import com.ttxxly.reader.utils.ScreenUtils;
 
@@ -60,9 +65,10 @@ public class ReadActivity extends AppCompatActivity implements ReadContract.View
 
     @Override
     public void init() {
+        ChapterRead chapterRead = new Gson().fromJson(Chapter.content, ChapterRead.class);
         mflReadWidget = findViewById(R.id.flReadWidget);
         mflReadWidget.removeAllViews();
-        page = new BaseView(this);
+        page = new BaseView(this, chapterRead);
         mflReadWidget.addView(page);
     }
 

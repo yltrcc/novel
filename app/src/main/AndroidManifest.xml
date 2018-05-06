@@ -39,7 +39,8 @@
         <activity android:name=".ui.finish.FinishActivity" />
         <activity android:name=".ui.rank.RankActivity" />
         <activity android:name=".ui.selection.SelectionActivity" />
-        <activity android:name=".ui.category.SubCategoryActivity"></activity>
+        <activity android:name=".ui.category.SubCategoryActivity" />
+        <activity android:name=".ui.account.AccountActivity"></activity>
     </application>
 
 </manifest>

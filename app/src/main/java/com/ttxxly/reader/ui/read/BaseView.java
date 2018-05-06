@@ -7,6 +7,7 @@ import android.graphics.PointF;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.ttxxly.reader.entity.ChapterRead;
 import com.ttxxly.reader.utils.ToastUtils;
 
 /**
@@ -18,14 +19,18 @@ import com.ttxxly.reader.utils.ToastUtils;
  */
 public class BaseView extends View {
 
-    public BaseView(Context context) {
+    private final PageFactory pageFactory;
 
+    public BaseView(Context context, ChapterRead chapterRead) {
         super(context);
+        pageFactory = new PageFactory(context, 40, chapterRead);
+
     }
+
 
     @Override
     protected void onDraw(Canvas canvas) {
-
+        pageFactory.onDraw(canvas);
     }
 
     @Override

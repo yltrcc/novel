@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.ttxxly.reader.R;
 import com.ttxxly.reader.base.BaseFragment;
+import com.ttxxly.reader.ui.account.AccountActivity;
 import com.ttxxly.reader.ui.fragment.publication.PublicationContract;
 import com.ttxxly.reader.ui.fragment.publication.PublicationPresenter;
 import com.ttxxly.reader.ui.information.UserInformationActivity;
@@ -23,6 +24,7 @@ public class UserFragment extends BaseFragment implements UserContract.View{
     private RelativeLayout mRLUserSettings;
     private ViewGroup container;
     private LinearLayout mLLUserInfo;
+    private RelativeLayout mRlAccount;
 
     public UserFragment() {
         // Required empty public constructor
@@ -60,5 +62,17 @@ public class UserFragment extends BaseFragment implements UserContract.View{
                 startActivity(new Intent(container.getContext(), UserInformationActivity.class));
             }
         });
+
+        //账户信息
+        mRlAccount = view.findViewById(R.id.RlAccount);
+        mRlAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(container.getContext(), AccountActivity.class));
+            }
+        });
+
+        //浏览记录
+
     }
 }
