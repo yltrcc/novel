@@ -15,7 +15,6 @@ public class ReaderApplication extends Application {
         super.onCreate();
         mInstance = this;
         AppUtils.init(this);
-
     }
 
     public static ReaderApplication getsInstance() {
